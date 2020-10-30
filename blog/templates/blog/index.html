@@ -1,0 +1,44 @@
+{% extends "blog/base.html" %}
+
+{% block css%} 
+
+    <style>
+        body{        
+        background-image: url("/static/img/neg2.gif"); 
+        background-size: 100%;
+        background-position: 0px 100px;
+        }
+        #margem{margin-left: 250px;}
+        #texto{
+            font-family: Yesteryear, cursive;
+            font-size: 38px;
+            color: rgb(255, 255, 255);
+            text-shadow: #04323F 6px 5px 3px;
+        }
+        #texto2{
+            font-family: Yesteryear, cursive;
+            font-size: 38px;
+            color: #D3590F;
+            
+
+        }
+
+    </style>
+
+{% endblock css%}
+
+{% block content %} 
+{% load static %}
+
+<br>
+<div id="margem">
+    <h1 id="texto" > Bem vindo ao</h1> 
+        <h1 id="texto2" >Financezy </h1>
+        <p>
+        <h4> Sistema de controle de estoque</h4>
+    </p>
+    <br><br><br>
+    
+</div>
+
+{% endblock content %}

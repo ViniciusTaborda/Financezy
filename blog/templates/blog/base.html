@@ -1,0 +1,93 @@
+
+{% load static %}
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <title>Financezy</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="shortcut icon" type="image/jpeg" href="{% static "img/logo1.jpeg" %}"/>
+
+    <style>
+        body{background-color: #7D979D;}
+        nav {
+    width: 90%;}
+        .page-header{
+            margin-left: 135px;}
+        
+            .ok{
+        color: green;
+    }
+    .no{
+        color: red;
+    }
+
+    </style>
+    {% block css%} {% endblock css%}
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div id = "div1" class="row"><p></p>
+            <div class="col-md-12">
+            </div>
+        </div>
+        <div id = "div3" class="row" class="col-md-12">
+            <div id = "div3" class="col-md-2">
+                <img src="{% static "img/logo1.jpeg" %}" alt = "logo1" width = "100"align = "left"/>
+            </div>
+            <div id = "div3" class="col-md-8">	
+            </div>
+            <div id = "div3" class="col-md-2">
+                <nav>
+                    <ul class="menu">
+                        <li><a href="/logout/"> <img src="{% static "img/sair1.png" %}" alt = "sair1" width = "20"/> </a></li>
+                        
+                        <li><a href="#"> <img src="{% static "img/conf4.png" %}" alt = "conf4" width = "20"/>  </a>
+                        </li>
+                        <li><a href="{% url 'blog:index' %}"> <img src="{% static "img/home3.png" %}" alt = "home3" width = "20"/> </a></li>
+                        
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div id = "div1" class="row" >
+            <div class="col-md-12">
+            </div>
+            <div class="col-md-12">
+            </div>
+        </div>
+    </div>	
+    <div>
+		<input type="checkbox" id= "check" >
+		<label id = "icone" for= "check" style="width:70px;"> <img src = "{% static "img/icone.png" %}"> </label>
+		<div class="barra">
+			<nav>
+				<ul>
+				<li><a href="#"><div class = "link"><img src="{% static "img/flux.png" %}" width = "50"/><p>Caixa</div></a></li>
+				<li><a href="{% url 'blog:ent_estoque' %}"><div class = "link"><img src="{% static "img/ctapg.png" %}" width = "50"/><p>Despesa</div></a>
+    			</li>
+				<li><a href="{% url 'blog:sai_estoque' %}"><div class = "link"><img src= "{%static "img/ctare.png" %}" width = "80"/><p>Receita</div></a>
+				</li>
+				<li><a href="#"><div class = "link"><img src="{% static "img/rel1.png" %}" width = "40"/><p>Cadastro</div></a>
+					<ul>
+						<li><a href="{% url 'blog:parceiro_list' %}">Parceiro</a></li>
+						<li><a href="{% url 'blog:produto_add' %}">Produtos</a></li>
+					</ul>
+				</li>
+				<li><a href="{% url 'blog:produto_list' %}"><div class = "link"><img src="{% static "img/estoque.png" %}" width = "40"/><p>Estoque</div></a></li>
+				</ul>
+			</nav>
+		</div>
+    </div>	
+    {% block content %} {% endblock content %}
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    {% block js%}     {% endblock js%}
+</body>
+</html>

@@ -1,0 +1,87 @@
+
+{% extends "blog/base.html" %}
+
+{% block css%} 
+{% load static %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<script src=https://kit.fontawesome.com/a076d05399.js></script>
+
+
+<style>
+    #margem {margin-left: 340px;}
+    #editar {margin-left: 430;}
+    #prod {margin-left: 300;}
+</style>
+
+{% endblock css%}
+
+
+{% block content %} 
+<br>
+<a id= "margem" href="{% url 'blog:produto_list' %}">
+    <button class="btn btn--radius-2 btn--red" >
+        <i class="fas fa-backspace"> </i> Voltar 
+    </button>
+</a>
+
+
+<span class="pull-rigth">
+    <a href="{% url 'blog:produto_edit' object.pk %}">
+        <button id = "editar" type="button" class="btn btn-success">
+            <span class="fas fa-pencil-alt"></span>Editar
+
+        </button>
+    </a>
+</span>
+<br>
+
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+    <div class="wrapper wrapper--w790">
+        <div class="card card-5">
+            <div class="card-heading">
+                <h1 class="title"> {{object.produto}}</h1>
+            </div>
+            
+                <table class="table table-user-information">
+                    <tbody>
+                        <tr>
+                            <th class="text-rigth">Origem</th>
+                            <td>
+                                {% if object.importado %}
+                                <i class="fa fa-check-circle ok"></i>
+                              {% else %}
+                                <i class="fa fa-minus-circle no"></i>
+                              {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="text-rigth">NCM </th>
+                            <td> {{object.ncm}}</td>
+                        </tr>
+                        <tr>
+                            <th class="text-rigth">Preço </th>
+                            <td> {{object.preco}}</td>
+                        </tr>
+                        <tr>
+                            <th class="text-rigth">Estoque </th>
+                            <td> {{object.estoque}}</td>
+                        </tr>
+                        <tr>
+                            <th class="text-rigth">Estoque Mínimo </th>
+                            <td> {{object.estoque_minimo}}</td>
+                        </tr>
+                        <tr>
+                            <th class="text-rigth">Categoria Produto </th>
+                            <td> {{object.tipo_produto}}</td>
+                        </tr>
+                    </tbody>    
+                </table>
+            
+            
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

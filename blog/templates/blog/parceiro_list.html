@@ -1,0 +1,90 @@
+
+{% extends "blog/base.html" %}
+
+{% block css%} 
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<style>
+
+.pull-rigth{margin-left: 870px;}
+.btn--red:hover {background: #04323F;color:white;}
+.btn--red {background: #D3590F;}
+.btn--OK:hover {background:#D3590F ;color:white;}
+.btn--OK {background: #04323F;height: 33px; width: 33px;padding-left: 0px;padding-right: 0px;}
+.col-sm-12{margin-left: 320px;}
+#search{width: 250px;}
+
+</style>
+{% endblock css%}
+{% block content %} 
+<br>
+<div class="col-sm-12" >
+        <div class="col-sm-3" >
+            <form method="GET" class="form-inline" >
+                <input type="text" id="search" name = "search" class="form-control" placeholder="Busca" >
+                <button type="submit" class="btn btn--OK" id value="OK">
+                <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+        
+        <div class="col-sm-3">
+            <span class="">
+                <a href="{% url 'blog:parceiro_add' %}">
+                    <button type="button" class="btn btn--red">
+                        <span class="fa fa-plus"></span> Adicionar
+                    </button>
+                </a>
+            </span>
+        </div>
+</div>
+    <br>
+
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+    <div class="wrapper wrapper--w790">
+        <div class="card card-5">
+            <div class="card-heading">
+                <h2 class="title">
+                    <img src="{% static "img/cliente.png" %}" alt = "cliente" width = "30"/>
+                    Parceiro de Negócio</h2>
+            </div>
+
+            {% if object_lista %}
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>CNPJ</th>
+                        <th>Contato</th>
+                        <th>Telefone</th>
+                        <th>UF</th>
+                        <th>Tipo Parceiro</th>
+                    </tr>
+                </thead> 
+                <tbody>
+                    {% for object_par in object_lista%}
+                        <tr>
+                            <td>
+                                <a href="{{ object_par.get_absolute_url }}">{{ object_par.parceiro }}</a>
+                            </td>
+                            <td>{{ object_par.cnpj}}</td>
+                            <td>{{object_par.contato }}</td>
+                            <td class="text-center">{{ object_par.telefone }}</td>
+                            <td class="text-center">{{ object_par.estado }}</td>
+                            <td class="text-center">{{ object_par.tipo_parceiro }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+                <p class="alert alert-warning">Sem itens na lista</p>
+            {% endif%}
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

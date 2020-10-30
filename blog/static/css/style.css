@@ -1,0 +1,346 @@
+
+  div.scrollmenu {
+    background-color: #04323F;
+    overflow: auto;
+    white-space: nowrap;
+    position: absolute;
+  }
+  
+  div.scrollmenu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+  }
+  
+
+
+  div.scrollmenu a:hover {
+    background-color: #D3590F;
+  }
+
+
+  #div1 {background-color: #D3590F;}
+	#div2 {border: 2px solid #DCDCDC;}
+	#div3 {background-color: #04323F;}
+	#div4 {background-color: #7D979D;}
+	#div5 {background-color: #DCDCDC;}
+  #div6 {background-color: #A9A9A9;}
+  #div7 {background-color: black;}
+  
+  .text-login-logo {
+    width:300px;
+    color:#D3590F;
+    font: Work Sans;
+    text-align: center;  
+  }
+
+  .form-group {
+    width:300px;
+    height:75px;
+    padding: 5px;
+    color: white;
+  }
+
+  .div8 {
+    background-color: grey;
+    opacity: 0.7;}
+
+  #check {
+    display: none;
+}
+
+#icone {
+    cursor: pointer;
+    padding: 15px;
+    position: absolute;
+    z-index: 2;
+}
+
+.barra {
+    background-color: #04323F;
+    height: 50%;
+    width: 130px;
+    position: absolute;
+    transition: all .2s linear;
+    left: -300px;
+    z-index: 1;    
+}
+.barra ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.barra ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+.barra ul li{
+  padding: 15px;
+  position: relative;
+  width: 130px;
+  background-color: #04323F;
+  border-top: 1px solid #7D979D;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+
+}
+.barra ul ul{
+  transition: all 0.3s;
+  opacity: 0;
+  position: absolute;
+  visibility: hidden;
+  left: 103%;
+  top: 0;
+
+}
+
+.barra ul li:hover {
+  background-color: #D3590F;
+}
+.barra ul li:hover > ul{
+  opacity: 1;
+  visibility: visible;
+}
+.barra ul li a{
+  color: #fff;
+  text-decoration: none;
+}
+
+
+nav {
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    text-align: center;
+    padding: 30.5;
+}
+
+
+nav a {
+    text-decoration: none;
+    
+}
+
+.link {
+    background-color: #04323F;
+    font-family: Arial;
+    font-size: 10pt;
+    color: #f4f4f9;
+    opacity: 0;
+    margin-top: 150px;
+    padding: 5px;
+   }
+
+.link:hover{
+    background-color: #D3590F;
+}
+
+#check:checked ~ .barra{
+    transform: translateX(300px);
+
+}
+
+#check:checked ~ .barra nav a .link {
+    opacity: 1;
+    margin-top: 0;
+
+}
+
+/* Style inputs, select elements and textareas */
+input[type=text], select, textarea{
+  width: 100%;
+  line-height: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+/* Style the label to display next to the inputs */
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+/* Style the submit button */
+input[type=submit] {
+  background-color: #D3590F;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+/* Style the container */
+.container-barra {
+  position: relative;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin-right: 10px;
+  margin-left:130px ;
+  margin-top: 10px;
+}
+
+/* Floating column for labels: 25% width */
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+/* Floating column for inputs: 75% width */
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+  
+body{
+  font-family: sans-serif;
+}
+table {
+  border-collapse: collapse;
+}
+
+table td {
+  border: 1px solid #333;
+  padding: 2px 10px;
+  text-align: center;
+}
+
+thead td {
+  background-color: #04323F;
+  color: #fff;
+        font-weight: bold;
+        font-size: small;
+}
+
+.bordernone {
+  border: none;
+}
+
+.white-row td{
+  padding: 5px;
+        border: none;
+        font-size: small;
+}
+
+.section-soma td{
+  color: #fff;
+  font-weight: bold;
+  background-color: #808080;
+        text-align: center;
+        font-size: small;
+}
+
+.section-total td{
+  color: #fff;
+  font-weight: bold;
+  background-color:black;
+        text-align: center;
+        font-size: small;
+}
+
+.section{
+  border-bottom: 2px solid#D3590F;
+}
+
+.section.categoria{border-bottom: none;}
+
+.table-success{
+  border: 1px solid white;
+}
+.table-success td {
+  border: 1px solid white;
+}
+
+
+.section td{
+  color: #04323F;
+  font-weight: bold;
+  background-color: #ccc;
+  border-color: #ccc;
+        text-align: center;
+        font-size: small;
+}
+
+tbody .data td {
+  color: #04323F;
+  text-align: center;
+  border-left: none;
+        border-right: none;
+        font-size: small;
+}
+    .form-control {
+      width: 100%;
+        padding: 5px;
+        height: 40px;
+        font-size: small;
+    }
+
+        .menu{
+    list-style:none; 
+    float:left; 
+    background-color:#04323F; 
+    font-family: arial;
+    font-size: small;
+    }
+
+    .menu li{
+    position:relative; 
+    float: right; 
+    border-right:1px solid #c0c0c0; 
+    }
+
+    .menu li a{color:white; text-decoration:none; padding:5px 10px; display:block;}
+ 
+    .menu li a:hover{
+    background:#D3590F; 
+    color:#fff; 
+    }
+
+    .menu li  ul{
+    position:absolute; 
+    top:33px; 
+    right: 0;
+    background-color:#04323F; 
+    display:none;
+    width:150px;
+    z-index: 1;
+    } 
+    	
+    .menu li:hover ul, .menu li.over ul{
+        display:block;}
+
+    .menu li ul li{
+    border:1px solid #c0c0c0; 
+    display:block; 
+    width:150px;
+    }
+
+    

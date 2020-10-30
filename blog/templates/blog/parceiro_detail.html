@@ -1,0 +1,146 @@
+
+{% extends "blog/base.html" %}
+
+{% block css%} 
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src=https://kit.fontawesome.com/a076d05399.js></script>
+
+<style>
+    #margem {margin-left: 135px;}
+    #editar {margin-left: 620px;}
+    #prod {margin-left: 280px;}
+    .btn{padding: 00 px;}
+</style>
+
+{% endblock css%}
+
+
+{% block content %} 
+<br>
+<a id= "prod" href="{% url 'blog:parceiro_list' %}">
+    <button class="btn btn--radius-2 btn--red" >
+        <i class="fas fa-backspace"> </i> Voltar  
+    </button>
+</a>
+
+<span class="pull-rigth">
+    <a href="{% url 'blog:parceiro_edit' object_par.pk %}">
+        <button id = "editar" type="button" class="btn btn-success">
+            <span class="fas fa-pencil-alt"></span> Editar
+        </button>
+    </a>
+</span>
+
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+    <div class="wrapper wrapper--w790">
+        <div class="card card-5">
+            <div class="card-heading">
+                <h2 class="title">
+                    <img src="{% static "img/contato.png" %}" alt = "cliente" width = "20"/>
+                    {{object_par.parceiro}}
+                </h2>
+            </div>
+            <div class="card-body">
+                <div class="name">Razão Social</div>
+                <label class="input--style-5" style="width:620px">{{object_par.parceiro}}</label>
+                <div class="row row-refine">
+                    <div class="col-6">   
+                        <div class="name">CNPJ/CPF</div></div>         
+                    <div class="col-3">
+                        <div class="name">Inscrição Estadual</div></div>  
+                    <div class="col-3">
+                        <div class="name">Tipo Parceiro</div></div>         
+                </div>
+                <div class="value">
+                    <div class="row row-refine">
+                        <div class="col-6">
+                                <label class="input--style-5"style="width:500px">{{object_par.cnpj}}</label>
+                        </div>
+                        <div class="col-3">
+                            <div class="input-group-desc">
+                                <label class="input--style-5"style="width:295px" >{{object_par.inscricao_estadual}}</label>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="input-group-desc">
+                                <label class="input--style-5"style="width:295px" >{{object_par.tipo_parceiro}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="name">Contato</div>
+                <label class="input--style-5" style="width:620px" >{{object_par.contato}}</label>
+                <div class="row row-refine">
+                    <div class="col-9">   
+                        <div class="name">Email</div></div>         
+                    <div class="col-3">
+                        <div class="name">Telefone</div></div>          
+                </div>
+                <div class="value">
+                    <div class="row row-refine">
+                        <div class="col-9">
+                                <label class="input--style-5"style="width:500px">{{object_par.email}}</label>
+                        </div>
+                        <div class="col-3">
+                            <div class="input-group-desc">
+                                <label class="input--style-5"style="width:140px" >{{object_par.telefone}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-refine">
+                    <div class="col-6">   
+                        <div class="name">Endereço</div></div>
+                    <div class="col-3">
+                        <div class="name">Nº</div></div>             
+                    <div class="col-3">
+                        <div class="name">CEP</div></div>          
+                </div>
+                <div class="value">
+                    <div class="row row-refine">
+                        <div class="col-6">
+                                <label class="input--style-5"style="width:500px">{{object_par.rua}}</label>
+                        </div>
+                        <div class="col-3">
+                            <label class="input--style-5"style="width:500px">{{object_par.numero}}</label>
+                        </div>
+                        <div class="col-3">
+                            <div class="input-group-desc">
+                                <label class="input--style-5"style="width:140px" >{{object_par.cep}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-refine">
+                    <div class="col-3">   
+                        <div class="name">Bairro</div></div>
+                    <div class="col-6">
+                        <div class="name">Cidade</div></div>             
+                    <div class="col-3">
+                        <div class="name">UF</div></div>          
+                </div>
+                <div class="value">
+                    <div class="row row-refine">
+                        <div class="col-3">
+                                <label class="input--style-5"style="width:500px">{{object_par.bairro}}</label>
+                        </div>
+                        <div class="col-6">
+                            <label class="input--style-5"style="width:500px">{{object_par.cidade}}</label>
+                        </div>
+                        <div class="col-3">
+                            <div class="input-group-desc">
+                                <label class="input--style-5"style="width:140px" >{{object_par.estado}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

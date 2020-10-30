@@ -1,0 +1,83 @@
+{% extends "blog/base.html" %}
+
+
+{% block css%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+<style>
+
+.table-responsive{width: 80%;}
+.btn-primary:hover {background: #04323F;}
+.btn-primary {background: #D3590F;}
+.btn--OK:hover {background: #d3590f;color:white;}
+.btn--OK {background: #04323f;height: 33px; width: 33px;padding-left: 0px;padding-right: 0px;}
+#search{width: 400px;}
+#botao {display: inline-block}
+#margem{margin-left:300px ;}
+</style>
+{% endblock css%}
+
+{% block content %} 
+<br>
+<div id="margem" class="offset-1 col-12 list-div">
+    <div id="botao" class="col-8">
+        <form method="GET" class="form-inline" >
+            <input type="text" id="search" name = "search" class="form-control" placeholder="Busca" >
+            <button type="submit" class="btn btn--OK" id value="OK">
+            <i class="fas fa-search"></i>
+            </button>
+        </form>
+    </div>
+    <div id="botao" class="col-3" ></div>
+    <div id="botao" class="col-1" >
+        <span class="">
+            <a href="{% url url_add%}">
+                <button type="button" class="btn btn-primary">
+                    <span class="fa fa-plus"></span> Adicionar
+                </button>
+            </a>
+        </span>
+    </div>
+</div>
+
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50" style="margin-left: -100px;">
+    <div class="wrapper wrapper--w790">
+        <div class="card card-5" style="width: 940;">
+            <div class="card-heading">
+                <h2 class="title">Estoque {{titulo}}</h2>
+            </div>
+            {% if object_list%}
+            <table class="table table-responsive ">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>NF</th>
+                        <th>Data</th>
+                        <th>Usuário</th>
+                        <th>Parceiro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for object in object_list %}
+                    <tr>
+                        <td width= "200px">
+                            <a href= "{{ object.get_absolute_url }}">{{object}}</a>
+                        </td>
+                        <td width= "100px"> {{object.nf_formated}} </td>
+                        <td width= "300px"> {{object.created}} </td>
+                        <td > {{object.funcionario.first_name}} </td>
+                        <td width= "200px" > {{object.parceiro}} </td>
+                    </tr>
+                    {% endfor%}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="alert alert-warning">Sem Itens na Lista</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

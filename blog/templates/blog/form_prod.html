@@ -1,0 +1,49 @@
+{% extends "blog/base.html" %}
+{% load bootstrap%}
+{% block css%} 
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+
+<style>
+    span.required:after{
+        content: "*";
+        color: red;
+    }
+    form{
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+    
+</style>
+{% endblock css%}
+
+
+{% block content %} 
+
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+  <div class="wrapper wrapper--w790">
+      <div class="card card-5">
+          <div class="card-heading">
+              <h2 class="title">
+                  <img src="{% static "img/produto.png" %}" alt = "cliente" width = "30"/>
+                  Cadastrar Produto
+              </h2>
+          </div>
+          <form method="POST" novalidate>{% csrf_token %}
+            {{form|bootstrap}}
+            {{formset.management_form}}
+            <button type="submit" class="btn btn-success">Cadastrar</button>
+            <p style="color: honeydew;">ok</p>
+          </form>
+      </div>
+  </div>
+</div>
+{% endblock content %}
+
+{% block js %}
+
+<script>$ ('#id_importado').removeClass('form-control')</script>
+
+{% endblock js %}
